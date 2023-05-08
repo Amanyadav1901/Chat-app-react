@@ -63,11 +63,11 @@ const Signup = () => {
             placeholder="Confirm Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <InputRightElement width="4.5rem">
+          {/* <InputRightElement width="4.5rem">
             <Button h="1.75rem" size="sm" onClick={handleClick}>
               {show ? "Hide" : "Show"}
             </Button>
-          </InputRightElement>
+          </InputRightElement> */}
         </InputGroup>
       </FormControl>
 
