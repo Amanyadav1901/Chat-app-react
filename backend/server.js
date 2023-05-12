@@ -8,6 +8,8 @@ dotenv.config();
 connectDB();
 const app = express();
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("API is Running");
 });
@@ -21,6 +23,6 @@ app.get("/api/chat/:id", (req, res) => {
   res.send(singleChat);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3100;
 
 app.listen(PORT, console.log(`server started on PORT ${PORT}`.yellow.bold));
