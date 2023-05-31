@@ -1,22 +1,26 @@
-import React, { useEffect } from "react";
 import {
   Box,
   Container,
-  Text,
-  Tabs,
-  TabList,
-  TabPanels,
-  TabPanel,
   Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useHistory } from "react-router";
 import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
-import { useHistory } from "react-router-dom";
 
-const HomePage = () => {
+function Homepage() {
   const history = useHistory();
 
-  useEffect(() => {});
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+
+    if (user) history.push("/chats");
+  }, [history]);
 
   return (
     <Container maxW="xl" centerContent>
@@ -24,14 +28,14 @@ const HomePage = () => {
         d="flex"
         justifyContent="center"
         p={3}
-        bg={"White"}
+        bg="white"
         w="100%"
         m="40px 0 15px 0"
         borderRadius="lg"
         borderWidth="1px"
       >
-        <Text fontSize="4xl" fontFamily="work sans" color="black">
-          Bubble Chat
+        <Text fontSize="4xl" fontFamily="Work sans">
+          Talk-A-Tive
         </Text>
       </Box>
       <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
@@ -52,6 +56,6 @@ const HomePage = () => {
       </Box>
     </Container>
   );
-};
+}
 
-export default HomePage;
+export default Homepage;
